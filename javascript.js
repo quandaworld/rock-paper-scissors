@@ -80,7 +80,7 @@ function game() {
     }
 
     // Determine the final winner
-    // If player wins the same number of rounds computer => draw
+    // If player wins the same number of rounds as computer does => draw
     if (playerWin === computerWin) {
         return 'Final Result: Draw!';
     // If player wins more rounds => player wins
