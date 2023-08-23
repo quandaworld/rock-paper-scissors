@@ -8,52 +8,91 @@ function getComputerChoice() {
     return choice[index];
 }
 
-// console.log(getComputerChoice());
-
-// Define a function that returns the winner of the round
+// Define a function that returns the winner of a single game
 function playRound(playerSelection, computerSelection) {
-    // if player's choice is same as computer's choice => draw
-    if (playerSelection.toLowerCase() === computerSelection) {
+    // If player's choice is same as computer's choice => draw
+    if (playerSelection === computerSelection) {
         return 'Draw!';
     }
 
-    // if player chooses rock
-    if (playerSelection.toLowerCase() === 'rock') {
+    // If player chooses rock
+    if (playerSelection === 'rock') {
         switch (computerSelection) {
-            // computer chooses paper => player lose
+            // Computer chooses paper => player loses
             case 'paper':
                 return 'You Lose! Paper beats Rock';
-            // computer chooses scissors => player win
+            // Computer chooses scissors => player wins
             case 'scissors':
                 return 'You Win! Rock beats Scissors';
         }
     }
 
-    // if player chooses paper
-    if (playerSelection.toLowerCase() === 'paper') {
+    // If player chooses paper
+    if (playerSelection === 'paper') {
         switch (computerSelection) {
-            // computer chooses rock => player win
+            // Computer chooses rock => player wins
             case 'rock':
                 return 'You Win! Paper beats Rock';
-            // computer chooses scissors => player lose
+            // Computer chooses scissors => player loses
             case 'scissors':
                 return 'You Lose! Scissors beat Paper';
         }
     } 
     
-    if (playerSelection.toLowerCase() === 'scissors') {
+    // If player chooses scissors
+    if (playerSelection === 'scissors') {
         switch (computerSelection) {
+            // Computer chooses rock => player loses
             case 'rock':
                 return 'You Lose! Rock beats Scissors';
+            // Computer chooses paper => player wins
             case 'paper':
                 return 'You Win! Scissors beat Paper';
         }
     }
-
-    // if player's choice is different than rock paper scissors => invalid input
-    return 'Invalid Choice!';
 }
 
-// const playerSelection = 'rock';
-// const computerSelection = getComputerChoice();
-// console.log(playRound(playerSelection, computerSelection));
+// Define a function that returns the winner of a 5-round game
+function game() {
+    // Initialize a variable to keep count of player's win, set its value to zero
+    let playerWin = 0;
+    // Initialize a variable to keep count of computer's win, set its value to zero
+    let computerWin = 0;
+
+    // Repeatedly play the game 5 times
+    for (let i = 0; i <= 5; i++) {
+        // Create a variable to store the input from the user
+        const input = prompt("Rock, Paper, Scissors?").toLowerCase();
+
+        // Create a variable to store the result of a single game
+        const result = playRound(input, computerSelection);
+
+        // If player wins, increase playerWin by 1
+        if (result.includes('Win')) {
+            playerWin++;
+        // If player loses, increase computerWin by 1
+        } else if (result.includes('Lose')) {
+            computerWin++;
+        }
+        
+        // Display the result of each round
+        console.log(result);
+    }
+
+    // Determine the final winner
+    // If player wins the same number of rounds computer => draw
+    if (playerWin === computerWin) {
+        return 'Final Result: Draw!';
+    // If player wins more rounds => player wins
+    } else if (playerWin > computerWin) {
+        return 'Final Result: You Win!'
+    // Else, computer wins
+    } else  {
+        return 'Final Result: Computer Win!';
+    }
+}
+
+
+
+
+
