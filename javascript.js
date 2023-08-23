@@ -41,9 +41,10 @@ function game() {
     let playerWin = 0;
     let computerWin = 0;
 
-    for (let i = 0; i <= 5; i++) {
-        const input = prompt("Rock, Paper, Scissors?").toLowerCase();
-        const result = playRound(input, computerSelection);
+    for (let i = 1; i <= 5; i++) {
+        const playerInput = prompt("Rock, Paper, Scissors?").toLowerCase();
+        const computerSelection = getComputerChoice();
+        const result = playRound(playerInput, computerSelection);
 
         if (result.includes('Win')) {
             playerWin++;
@@ -55,14 +56,13 @@ function game() {
     }
 
     if (playerWin === computerWin) {
-        return 'Final Result: Draw!';
+        console.log('Final Result: Draw!');
     } else if (playerWin > computerWin) {
-        return 'Final Result: You Win!'
+        console.log('Final Result: You Win!');
     } else  {
-        return 'Final Result: Computer Wins!';
+        console.log('Final Result: Computer Wins!');
     }
 }
-
 
 
 
