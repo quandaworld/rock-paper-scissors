@@ -1,5 +1,7 @@
+const choice = ['rock', 'paper', 'scissors'];
+
 function getComputerChoice() {
-  const choice = ['rock', 'paper', 'scissors'];
+  // const choice = ['rock', 'paper', 'scissors'];
   const index = Math.floor(Math.random() * choice.length);
   return choice[index];
 }
@@ -42,7 +44,13 @@ function game() {
   let computerWin = 0;
 
   for (let i = 0; i < 5; i++) {
-    const playerInput = prompt("Rock, Paper, Scissors?").toLowerCase();
+    let playerInput;
+    for (;;) {
+      playerInput = prompt("Rock, Paper, Scissors?").toLowerCase();
+      if (choice.includes(playerInput)) break;
+      alert('Invalid input. Try again');
+    }
+    // const playerInput = prompt("Rock, Paper, Scissors?").toLowerCase();
     const computerSelection = getComputerChoice();
     const result = playRound(playerInput, computerSelection);
 
