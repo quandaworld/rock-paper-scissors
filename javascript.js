@@ -1,6 +1,9 @@
-const choice = ['rock', 'paper', 'scissors'];
+const rock_button = document.getElementById("r");
+const paper_button = document.getElementById("p");
+const scissors_button = document.getElementById("s");
 
 function getComputerChoice() {
+  const choice = ['rock', 'paper', 'scissors'];
   const index = Math.floor(Math.random() * choice.length);
   return choice[index];
 }
@@ -38,30 +41,17 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game() {
+function game(playerSelection) {
   let playerWin = 0;
   let computerWin = 0;
 
-  for (let i = 0; i < 5; i++) {
-    let playerInput;
-    
-    // Repeatedly prompt for input until user gives valid input
-    for (;;) {
-      playerInput = prompt("Rock, Paper, Scissors?").toLowerCase();
-      if (choice.includes(playerInput)) break;
-      alert('Invalid input. Try again');
-    }
+  const computerSelection = getComputerChoice();
+  const result = playRound(playerSelection, computerSelection);
 
-    const computerSelection = getComputerChoice();
-    const result = playRound(playerInput, computerSelection);
-
-    if (result.includes('Win')) {
-      playerWin++;
-    } else if (result.includes('Lose')) {
-      computerWin++;
-    }
-
-    console.log(result);
+  if (result.includes('Win')) {
+    playerWin++;
+  } else if (result.includes('Lose')) {
+    computerWin++;
   }
 
   if (playerWin === computerWin) {
@@ -73,6 +63,21 @@ function game() {
   }
 }
 
+function main() {
+  rock_button.addEventListener('click', () => {
+    game('rock');
+  });
+
+  paper_button.addEventListener('click', () => {
+    game('paper');
+  });
+
+  scissors_button.addEventListener('click', () => {
+    game('scissors');
+  });
+}
+
+main();
 
 
 
