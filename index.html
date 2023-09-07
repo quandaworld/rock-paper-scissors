@@ -3,10 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>    
+    <title>Rock Paper Scissors</title>    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="javascript.js" defer></script>
 </head>
 <body>
+    <header>
+        <h1>ROCK PAPER SCISSORS</h1>
+    </header>
 
+    <div class="score-board">
+        <div class="player">
+            <h2>Player</h2>
+            <p id="player-score">0</p>
+        </div>
+        <div class="computer">
+            <h2>Computer</h2>
+            <p id="computer-score">0</p>
+        </div>
+    </div>
+
+    <h1 id="mym">Make Your Move</h1>
+    <p id="rule">First to score 5 points wins the game</p>
+
+    <div class="buttons">
+        <button id="r">✊</button>
+        <button id="p">🖐</button>
+        <button id="s">✌️</button>
+    </div>
+
+    <h2 id="result">...</h2>
+
+    <footer>
+        Copyright &copy 2023 quandaworld 
+        <a href="https://github.com/quandaworld" target="_blank"><i class="fa fa-github" style="font-size:20px"></i></a>
+    </footer>
 </body>
 </html>
