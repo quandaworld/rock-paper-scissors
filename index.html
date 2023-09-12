@@ -15,10 +15,12 @@
 
     <div class="score-board">
         <div class="player">
+            <p id="player-choice">😀</p>
             <h2>Player</h2>
             <p id="player-score">0</p>
         </div>
         <div class="computer">
+            <p id="computer-choice">🤖</p>
             <h2>Computer</h2>
             <p id="computer-score">0</p>
         </div>
@@ -28,15 +30,16 @@
     <p id="rule">First to score 5 points wins the game</p>
 
     <div class="buttons">
-        <button id="r">✊</button>
-        <button id="p">🖐</button>
-        <button id="s">✌️</button>
+        <button class="choice" id="r">✊</button>
+        <button class="choice" id="p">🖐</button>
+        <button class="choice" id="s">✌️</button>
     </div>
 
-    <h2 id="result">...</h2>
+    <div id="result">...</div>
+    <div id="final-result"></div>
 
     <footer>
-        Copyright &copy 2023 quandaworld 
+        Copyright &copy <span id="year"></span> quandaworld 
         <a href="https://github.com/quandaworld" target="_blank"><i class="fa fa-github" style="font-size:20px"></i></a>
     </footer>
 </body>
