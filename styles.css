@@ -102,3 +102,18 @@ footer {
   text-decoration: none;
   color: inherit;
 }
+
+@media only screen and (max-width: 850px) {
+  .score-board {
+    gap: 200px;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .choice {
+    margin: 20px;
+  }
+}
